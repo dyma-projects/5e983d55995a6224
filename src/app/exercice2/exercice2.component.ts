@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-exercice2',
@@ -8,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 export class Exercice2Component implements OnInit {
   public valeur: string;
 
-  constructor() { }
+  @ViewChild('inputValue') el: ElementRef
 
-  ngOnInit() {
+  constructor() {}
+
+  ngOnInit() {}
+
+  inputValueChanged(): void {
+    this.valeur = this.el.nativeElement.value;
   }
-
 }
